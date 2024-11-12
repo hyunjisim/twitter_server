@@ -32,34 +32,35 @@ let tweets = [
 export async function getAll(){
     return tweets
 }
+
 // 아이디에 대한 트윗을 리턴
 export async function getAllByUsername(username){
     return tweets.filter((tweet) => tweet.username == username)
 }
+
 // 글 번호에 대한 트윗을 리턴
 export async function getById(id){
     return tweets.find((tweet) => tweet.id === id)
 }
 
 // 트윗을 작성
-export async function create(username,name,text){
+export async function create(username, name, text){
     const tweet = {
-        // 리터럴 표기
-        id:'4',
+        id: '4',
         username: username,
         name: name,
         text: text,
         createdAt: Date.now().toString()
     }
-    tweets = [tweet,...tweets]
+    tweets = [tweet, ...tweets]
     return tweet
 }
 
 // 트윗을 변경
-export async function update(id,text){
+export async function update(id, text){
     const tweet = tweets.find((tweet) => tweet.id === id)
     if(tweet){
-        tweet.text = tweet
+        tweet.text = text
     }
     return tweet
 }
