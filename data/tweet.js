@@ -3,27 +3,21 @@
 let tweets = [
     {
         id: '1',
-        name: '카리나',
-        username: 'karina',
+        userId:'1',
         text: '카뤼나 로켓펀쳐',
-        createdAt:Date.now().toString(),
-        url:'https://www.google.com/imgres?q=%EC%B9%B4%EB%A6%AC%EB%82%98&imgurl=https%3A%2F%2Fi.ytimg.com%2Fvi%2Ftbg3QAu-GnI%2Fmaxresdefault.jpg&imgrefurl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dtbg3QAu-GnI&docid=DzaC10mHSsKPpM&tbnid=7C1LmSRR1OBWBM&vet=12ahUKEwja35Wm2dWJAxWZyzQHHctrOMQQM3oECEkQAA..i&w=1280&h=720&hcb=2&ved=2ahUKEwja35Wm2dWJAxWZyzQHHctrOMQQM3oECEkQAA'
+        createdAt:Date.now().toString()
     },
     {
         id: '2',
-        name: '윈터',
-        username: 'winter',
+        userId:'2',
         text: '윈터 아마멘터',
-        createdAt:Date.now().toString(),
-        url:'https://www.google.com/imgres?q=%EC%9C%88%ED%84%B0&imgurl=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fqe0gepQh8N0%2Fhq720.jpg%3Fsqp%3D-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD%26rs%3DAOn4CLAy8pt1XcwWtG0TEonIqRAqiFufyQ&imgrefurl=https%3A%2F%2Fm.youtube.com%2Fwatch%3Fv%3Dqe0gepQh8N0&docid=b4ycbmXWaRT-IM&tbnid=sMMCPPVfDWdLxM&vet=12ahUKEwicnfeH2dWJAxU-sFYBHR1zJK4QM3oECBYQAA..i&w=686&h=386&hcb=2&ved=2ahUKEwicnfeH2dWJAxU-sFYBHR1zJK4QM3oECBYQAA'
+        createdAt:Date.now().toString()
     },
     {
         id: '3',
-        name: '닝닝',
-        username: 'ningning',
+        userId:'1',
         text: '닝닝 이디해커',
-        createdAt:Date.now().toString(),
-        url:'https://www.google.com/imgres?q=%EB%8B%9D%EB%8B%9D&imgurl=https%3A%2F%2Fi.ytimg.com%2Fvi%2FCAZO-zqUzWU%2Fmaxresdefault.jpg&imgrefurl=https%3A%2F%2Fm.youtube.com%2Fwatch%3Fv%3DCAZO-zqUzWU&docid=L4Vo_f8-vbAE9M&tbnid=K3tFFvr3xYFQGM&vet=12ahUKEwiIgaud2dWJAxWu1zQHHf5_IYMQM3oECGgQAA..i&w=1280&h=720&hcb=2&ved=2ahUKEwiIgaud2dWJAxWu1zQHHf5_IYMQM3oECGgQAA'
+        createdAt:Date.now().toString()
     }
 ]
 
