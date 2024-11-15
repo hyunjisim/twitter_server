@@ -10,7 +10,7 @@ async function createJwtToken(id) {
 }
 
 export async function signup(req, res, next){
-    const { username, password, name, email } = req.body
+    const { username, password, name, email,url } = req.body
     // 회원중복체크
     const found = await authRepository.findByUsername(username)
     if(found){
@@ -18,7 +18,13 @@ export async function signup(req, res, next){
     }
     // const users = await authRepository.createUser(username, password, name, email)
     const hashed = bcrypt.hashSync(password, config.bcrypt.saltRounds)
-    const users = await authRepository.createUser(username, hashed, name, email)
+    const users = await authRepository.createUser({
+        username, 
+        password: hashed, 
+        name, 
+        email,
+        url
+    })
     //가입시 토큰 할당 (가입이 되자마자 로그인 되게 함)
     const token = await createJwtToken(users.id)
     res.status(201).json({token,username})
