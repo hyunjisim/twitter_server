@@ -10,7 +10,7 @@ create table users (
 );
 
 select * from users;
-
+DELETE FROM users;
 create table tweets (
 	id int auto_increment primary key,
     userId int not null,
@@ -20,6 +20,9 @@ create table tweets (
 );
 
 select * from tweets;
+
+SELECT u.id,u.username,u.name,u.url, tw.userId, tw.createdAt,tw.text FROM users as u
+JOIN tweet as tw ON u.id = tw.userId ORDER BY tw.createdAt DESC
 
 
 

@@ -6,6 +6,7 @@ import { config } from '../config.js'
 
 
 async function createJwtToken(id) {
+    console.log('토큰 생성 중 - 사용자 ID:', id);
     return jwt.sign({id}, config.jwt.secretKey,{expiresIn: config.jwt.expiresInSec})
 }
 
@@ -18,15 +19,22 @@ export async function signup(req, res, next){
     }
     // const users = await authRepository.createUser(username, password, name, email)
     const hashed = bcrypt.hashSync(password, config.bcrypt.saltRounds)
-    const users = await authRepository.createUser({
+
+    const userId  = await authRepository.createUser({
         username, 
         password: hashed, 
         name, 
         email,
         url
     })
+    if (!userId) {
+        return res.status(500).json({ message: '사용자 생성 실패' });
+    }
+
+    console.log('생성된 사용자 ID:', userId); // 디버깅 로그
+
     //가입시 토큰 할당 (가입이 되자마자 로그인 되게 함)
-    const token = await createJwtToken(users.id)
+    const token = await createJwtToken(userId)
     res.status(201).json({token,username})
 }
 export async function login(req, res, next){

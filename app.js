@@ -3,10 +3,30 @@ import tweetsRouter from './router/tweets.js'
 import authRouter from './router/auth.js'
 import { config } from './config.js'
 import { initSocket } from './connection/socket.js'
-import { db } from "./db/database.js"
+import { sequelize } from './db/database.js'
+
+// import { db } from "./db/database.js"
+// npm i cors
+import cors from 'cors'
 
 
 const app = express()
+/* 
+app.use(cors({
+    origin: '*', // 모든 도메인에서 접근 허용
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true // 인증 관련 헤더를 포함하도록 허용
+}));
+
+ */
+
+app.use(cors({
+    origin: '*',
+    credentials: true
+}))
+
+
 
 app.use(express.json())
 
@@ -19,5 +39,7 @@ app.use((req,res,next)=>{
 })
 // db연결 확인
 // db.getConnection().then((connection)=>console.log(connection))
-const server = app.listen(config.host.port)
-initSocket(server)
+sequelize.sync().then(()=> {
+    const server = app.listen(config.host.port)
+    initSocket(server)
+})
