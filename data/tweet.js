@@ -19,7 +19,6 @@ export async function create(text,userId) {
             url: user.url
         }))
         .then((result)=> {
-            const insertedTweetId = result.insertedId
             return getTweets().findOne({ _id: result.insertedId})
         })
         .then(mapOptionalTweet)
