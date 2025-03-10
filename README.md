@@ -29,7 +29,27 @@
 ## 📁 폴더 구조
 
 ```
-project/ ├── connection/ # 소켓 연결 관리 │ └── socket.js ├── controller/ # 요청 처리 로직 │ ├── auth.js │ └── tweet.js ├── data/ # DB 접근 모듈 (쿼리/모델 역할) │ ├── auth.js │ └── tweet.js ├── db/ # DB 설정 │ └── database.js ├── middleware/ # 미들웨어 (auth, validation) │ ├── auth.js │ └── validator.js ├── router/ # 라우터 정의 │ ├── auth.js │ └── tweets.js ├── app.js # 서버 초기화 및 라우터 연결 ├── config.js # 환경 설정 ├── package.json
+project/
+├── connection/            # 소켓 연결 관리
+│   └── socket.js
+├── controller/            # 요청 처리 로직
+│   ├── auth.js
+│   └── tweet.js
+├── data/                  # DB 접근 모듈 (쿼리/모델 역할)
+│   ├── auth.js
+│   └── tweet.js
+├── db/                    # DB 설정
+│   └── database.js
+├── middleware/            # 미들웨어 (auth, validation)
+│   ├── auth.js
+│   └── validator.js
+├── router/                # 라우터 정의
+│   ├── auth.js
+│   └── tweets.js
+├── app.js                 # 서버 초기화 및 라우터 연결
+├── config.js              # 환경 설정
+├── package.json           # 프로젝트 메타정보 및 의존성
+
 ```
 
 
@@ -45,20 +65,7 @@ cd mini-twitter-chat
 npm install
 
 npm start
-
-🧪 API 예시
-🔑 Auth
-POST /auth/signup
-POST /auth/login
-GET /auth/me (토큰 필요)
-🐦 Tweets
-GET /tweets (username 필터 가능)
-GET /tweets/:id
-POST /tweets
-PUT /tweets/:id
-DELETE /tweets/:id
-💬 Chat
-클라이언트 측 Socket.io를 통해 1:1 채팅
+```
 
 🙋‍♀️ 개발자
 심현지
